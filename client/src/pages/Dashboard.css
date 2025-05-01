@@ -1,0 +1,59 @@
+/* Dashboard.css */
+.dashboard-bg {
+    background: linear-gradient(to right, #fff8f2, #ffe0b2);
+  }
+  
+  .sidebar {
+    background: linear-gradient(to bottom, #fb8c00, #f57c00);
+    min-height: 100vh;
+    border-right: 2px solid #fff3e0;
+  }
+  
+  .sidebar-tab {
+    background-color: transparent;
+    color: white;
+    border: none;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-tab:hover {
+    background-color: #ffcc80;
+    color: #212121;
+  }
+  
+  .active-tab {
+    background-color: #fff3e0;
+    color: #e65100;
+    font-weight: bold;
+  }
+  
+  .welcome-banner {
+    background: linear-gradient(90deg, #ffb74d, #ffa726);
+    color: #fff;
+    border-radius: 1rem;
+  }
+  
+  .info-tile {
+    background-color: #ffffff;
+    border-radius: 1rem;
+  }
+  
+  .product-card {
+    background-color: #fff8e1;
+    border-radius: 0.75rem;
+  }
+  .placeholder-dp {
+  width: 80px;
+  height: 80px;
+  background-color: #ffe0b2;
+  color: #e65100;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  margin-left: 50px;
+}
+.initials {
+  font-family: 'Arial', sans-serif;
+}
