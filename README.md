@@ -26,6 +26,5 @@
 - ✅ Responsive layout optimized for all devices  
 
 ### 🎯 Project Goal
-
 Kalakriti aims to build a **sustainable digital ecosystem** where every creator — from rural artisans to urban designers — can receive **visibility, income, and appreciation** for their handmade work. We envision a future where creativity thrives, not just commercially, but culturally.
 

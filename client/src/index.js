@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Dashboard from './pages/Dashboard';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CartPage from './CartPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
