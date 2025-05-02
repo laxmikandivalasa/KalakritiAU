@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
-  useEffect(() => {
-    const reveals = document.querySelectorAll(".fade-in");
-    reveals.forEach((el, i) => {
-      el.style.opacity = 0;
-      el.style.transform = "translateY(40px)";
-      setTimeout(() => {
-        el.style.opacity = 1;
-        el.style.transform = "translateY(0)";
-      }, 300 * i);
-    });
-  }, []);
+  const [index, setIndex] = useState(0);
+  const categories = [
+    { image: '/images/pot.jpeg', name: 'Painting' },
+    { image: '/images/textile.jpeg', name: 'Textiles' },
+    { image: '/images/wood.jpeg', name: 'Woodwork' },
+    { image: '/images/paint.jpeg', name: 'Pottery' },
+    { image: '/images/jewel.jpeg', name: 'Jewelry' },
+    { image: '/images/decor.jpeg', name: 'Decor' }
+  ];
+  
+  
+  useAutoSlideAndReveal(setIndex, categories);
+
+
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#2b1b16', backgroundColor: '#fff8f5' }}>
@@ -52,47 +55,84 @@ const Home = () => {
       </section>
 
 
-      {/* 2. Popular Categories */}
-      <section className="fade-in" style={section('white')}>
-        <h2 style={title}>Popular Categories</h2>
-        <div style={grid}>
-          {[
-            ['🖌️', 'Painting'],
-            ['🧵', 'Textiles'],
-            ['🪵', 'Woodwork'],
-            ['🏺', 'Pottery'],
-            ['💍', 'Jewelry'],
-            ['🪔', 'Decor']
-          ].map(([icon, name]) => (
-            <div key={name} style={tile}>
-              <div style={iconStyle}>{icon}</div>
-              <h5>{name}</h5>
-            </div>
-          ))}
+      {/* 2. Popular Categories */}{/* 2. Popular Categories */}
+<section className="fade-in" style={{ backgroundColor: 'white', padding: '2rem', textAlign: 'center' }}>
+  <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Popular Categories</h2>
+
+  <div style={{ overflow: 'hidden', position: 'relative', maxWidth: '100%', margin: 'auto' }}>
+    <div
+      style={{
+        display: 'flex',
+        animation: 'slide 20s linear infinite',
+        width: 'calc(200% + 1rem)',
+      }}
+    >
+      {[...categories, ...categories].map(({ image, name }, i) => (
+        <div
+          key={name + i}
+          style={{
+            flex: '0 0 25%',
+            padding: '1rem',
+            boxSizing: 'border-box',
+            transition: 'all 0.3s ease',
+            textAlign: 'center',
+            borderRadius: '12px',
+            backgroundColor: '#f5f5f5',
+            margin: '0.5rem',
+            cursor: 'pointer'
+          }}
+          // onMouseEnter={(e) => {
+          //   e.currentTarget.style.backgroundColor = '#800000';
+          //   e.currentTarget.style.color = 'white';
+          //   e.currentTarget.style.transform = 'scale(1.05)';
+          // }}
+          // onMouseLeave={(e) => {
+          //   e.currentTarget.style.backgroundColor = '#f5f5f5';
+          //   e.currentTarget.style.color = 'black';
+          //   e.currentTarget.style.transform = 'scale(1)';
+          // }}
+        >
+          <img
+            src={image}
+            alt={name}
+            style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px' }}
+          />
+          <h5 style={{ marginTop: '0.5rem' }}>{name}</h5>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* 3. Featured Artworks */}
-      <section className="fade-in" style={section('#FF6347')}>
-        <h2 style={title}>Featured Artworks</h2>
-        <div style={grid}>
-          {[1, 2, 3].map(id => (
-            <div key={id} style={card}>
-              <img
-                src={`https://source.unsplash.com/400x30${id}/?handmade,art`}
-                alt="Art"
-                style={imgStyle}
-              />
-              <h4>Art Piece #{id}</h4>
-              <p>Made with heart and heritage.</p>
-              <button style={buttonCart}>Add to Cart</button>
-            </div>
-          ))}
-        </div>
-      </section>
+      <section className="fade-in" style={section('maroon')}>
+  <h2 style={{ ...title, color: 'beige' }}>Featured Artworks</h2>
+  <div style={{ ...grid, marginTop: '2rem' }}>
+    {[1, 2, 3].map(id => (
+      <div key={id} className="art-card" style={card}>
+        <img
+          src={`/featurepro/feapro${id}.jpeg`}
+          alt={`Art Piece ${id}`}
+          style={imgStyle}
+        />
+        <h4 style={{ color: 'maroon' }}>Art Piece {id}</h4>
+        <p style={{ color: 'black' }}>Made with heart and heritage.</p>
+        <button style={{ ...buttonCart, backgroundColor: 'maroon', color: 'beige' }}>
+          Add to Cart
+        </button>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
       {/* 4. About Us */}
-      <section className="fade-in" style={section('#FF4500')}>
+      <section className="fade-in" style={section('beige')}>
         <h2 style={title}>About Kalakriti</h2>
         <p style={centerText}>
           Kalakriti gives voice to India's handmade legacy—connecting artists directly with admirers, and ensuring fair trade for all.
@@ -158,15 +198,15 @@ const buttonCart = {
 
 const section = (bg) => ({
   backgroundColor: bg,
-  padding: '3rem 1rem',
+  padding: '8rem 1rem',
   transition: 'all 0.6s ease-in-out'
 });
 
 const title = {
   textAlign: 'center',
   fontSize: '2.2rem',
-  marginBottom: '2rem',
-  color: '#4a312c'
+  marginBottom: '3rem',
+  color: '#4a312c',
 };
 
 const centerText = {
@@ -180,16 +220,18 @@ const grid = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
   gap: '2rem',
-  justifyItems: 'center'
+  justifyItems: 'center',
+  color: 'beige',
 };
 
 const tile = {
-  background: '#fff',
+  background: 'rgb(128, 0, 0)',
   padding: '1.5rem',
   borderRadius: '16px',
   boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
   transition: 'transform 0.3s',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  width: '180px', // ← Increased width
 };
 
 const iconStyle = {
@@ -198,26 +240,52 @@ const iconStyle = {
 };
 
 const card = {
-  background: '#fff',
+  background: 'beige',
   padding: '1rem',
   borderRadius: '16px',
   boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
   transition: 'transform 0.3s',
-  textAlign: 'center'
+  textAlign: 'center',
+  width: '300px',
 };
 
 const imgStyle = {
-  width: '100%',
+  width: '50%',
   borderRadius: '12px',
   marginBottom: '1rem',
   boxShadow: '0 4px 10px rgba(0,0,0,0.08)'
 };
 
 const footer = {
-  backgroundColor: '#B22222',
+  backgroundColor: 'maroon',
   color: '#fff',
   padding: '1rem',
   textAlign: 'center'
+};
+
+
+
+const useAutoSlideAndReveal = (setIndex, categories) => {
+  useEffect(() => {
+    // Reveal animation
+    const reveals = document.querySelectorAll(".fade-in");
+    reveals.forEach((el, i) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(40px)";
+      setTimeout(() => {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+        el.style.transition = "all 0.6s ease";
+      }, 300 * i);
+    });
+
+    // Auto slide every 3 seconds
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % (categories.length - 3));
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
 };
 
 export default Home;

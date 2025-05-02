@@ -10,4 +10,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  }
+  /* for popular categories */
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  
 }
+/* App.css or index.css */
+.art-card {
+  transition: transform 0.3s ease;
+}
+.art-card:hover {
+  transform: scale(1.05);
+}
+
