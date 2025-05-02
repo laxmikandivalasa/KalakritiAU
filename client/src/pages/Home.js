@@ -16,19 +16,6 @@ const Home = () => {
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#2b1b16', backgroundColor: '#fff8f5' }}>
 
-      {/* Navbar */}
-      <nav style={navStyle}>
-        <div style={brandStyle}>🎨 KALAKRITI</div>
-        <div style={navLinks}>
-          <a href="/" style={link}>Home</a>
-          <a href="/about" style={link}>About</a>
-          <a href="/contact" style={link}>Contact</a>
-          <a href="/dashboard" style={link}>Dashboard</a>
-          <a href="/login" style={{ ...buttonOutline, backgroundColor: 'maroon' ,color:'beige'}}>Login</a>
-          <a href="/signup" style={{ ...buttonOutline, backgroundColor: 'maroon' ,color:'beige'}}>Signup</a>
-          <a href="/cart" style={buttonCart}>🛒</a>
-        </div>
-      </nav>
 
       {/* 1. Discover Section */}
       <section
