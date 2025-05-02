@@ -12,6 +12,7 @@ const Home = () => {
       }, 300 * i);
     });
   }, []);
+  //p, atri
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#2b1b16', backgroundColor: '#fff8f5' }}>
@@ -32,7 +33,7 @@ const Home = () => {
         }}
       >
         <a
-          href="/discover"
+          href="/product"
           style={{
             ...buttonPrimary,
             padding: '0.8rem 1.5rem',
