@@ -6,13 +6,12 @@ import Dashboard from './pages/Dashboard';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/login';
 import SignupPage from './pages/signup';
+import Home from './pages/Home';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Login />
-    <SignupPage />
-  
-  
+    <Login/>
   </React.StrictMode>
 );
 
