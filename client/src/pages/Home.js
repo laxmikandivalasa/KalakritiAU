@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
 const Home = () => {
+
+  useEffect(() => {
+    const reveals = document.querySelectorAll(".fade-in");
+    reveals.forEach((el, i) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(40px)";
+      setTimeout(() => {
+        el.style.opacity = 1;
+        el.style.transform = "translateY(0)";
+      }, 300 * i);
+    });
+  }, []);
   const [index, setIndex] = useState(0);
   const categories = [
     { image: '/images/pot.jpeg', name: 'Painting' },
@@ -13,8 +25,6 @@ const Home = () => {
   
   
   useAutoSlideAndReveal(setIndex, categories);
-
-
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#2b1b16', backgroundColor: '#fff8f5' }}>
@@ -35,7 +45,7 @@ const Home = () => {
         }}
       >
         <a
-          href="/discover"
+          href="/product"
           style={{
             ...buttonPrimary,
             padding: '0.8rem 1.5rem',

@@ -75,14 +75,12 @@ export default function Navbar() {
         <div style={brandStyle}>🎨 KALAKRITI</div>
         <ul style={navLinks}>
           <li><Link to="/" style={link}>Home</Link></li>
-          <li><Link to="/about" style={link}>About</Link></li>
           <li><Link to="/contact" style={link}>Contact</Link></li>
           <li><Link to="/dashboard" style={link}>Dashboard</Link></li>
+          <li><Link to="/product" style={link}>Product</Link></li>
           <li><Link to="/login" style={buttonOutline}>Login</Link></li>
           <li><Link to="/signup" style={buttonPrimary}>Signup</Link></li>
-          <li><Link to="/product" style={buttonPrimary}>Product</Link></li>
           <li><Link to="/cart" style={buttonCart}>🛒</Link></li>
-
         </ul>
       </nav>
 

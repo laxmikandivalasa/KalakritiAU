@@ -18,7 +18,7 @@ const Dashboard = () => {
           background: linear-gradient(to right, #fff8f2, #ffe0b2);
         }
         .sidebar {
-          background: linear-gradient(to bottom, #fb8c00, #f57c00);
+          background: linear-gradient(to bottom, maroon, #f57c00);
           min-height: 100vh;
           border-right: 2px solid #fff3e0;
         }
@@ -39,7 +39,7 @@ const Dashboard = () => {
           font-weight: bold;
         }
         .welcome-banner {
-          background: linear-gradient(90deg, #ffb74d, #ffa726);
+          background: linear-gradient(90deg, maroon, #ffa726);
           color: #fff;
           border-radius: 1rem;
         }
