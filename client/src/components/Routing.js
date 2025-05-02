@@ -6,7 +6,7 @@ import SignupPage from '../pages/signup';
 import CartPage from '../pages/CartPage';
 import Dashboard from '../pages/Dashboard';
 import { Errorpage } from '../pages/Errorpage';
-
+import Contact from '../pages/Contactus';
 export default function Routing() {
     return (
         <BrowserRouter>
@@ -17,6 +17,7 @@ export default function Routing() {
                     <Route path="signup" element={<SignupPage />} />
                     <Route path="cart" element={<CartPage />} />
                     <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="contact" element={<Contact />} />
                     <Route path="*" element={<Errorpage/>} />
 
                 </Route>
