@@ -80,7 +80,9 @@ export default function Navbar() {
           <li><Link to="/dashboard" style={link}>Dashboard</Link></li>
           <li><Link to="/login" style={buttonOutline}>Login</Link></li>
           <li><Link to="/signup" style={buttonPrimary}>Signup</Link></li>
+          <li><Link to="/product" style={buttonPrimary}>Product</Link></li>
           <li><Link to="/cart" style={buttonCart}>🛒</Link></li>
+
         </ul>
       </nav>
 
