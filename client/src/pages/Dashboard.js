@@ -1,18 +1,72 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Dashboard.css';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('profile');
   const [bio, setBio] = useState("I am a textile artist from the vibrant deserts of Rajasthan. Inspired by my grandmother’s embroidery work, I started experimenting with eco-friendly dyes and natural fabrics. Every piece I create tells a story of tradition, sustainability, and love for heritage.");
   const [editingBio, setEditingBio] = useState(false);
   const [newBio, setNewBio] = useState(bio);
-  const profileImage = null; // Replace with actual image logic if available
+  const profileImage = null;
 
   const tabClass = (tab) => `list-group-item list-group-item-action sidebar-tab ${activeTab === tab ? 'active-tab' : ''}`;
 
   return (
     <div className="container-fluid dashboard-bg min-vh-100 p-0">
+      {/* Embedded Styles from Dashboard.css */}
+      <style>{`
+        .dashboard-bg {
+          background: linear-gradient(to right, #fff8f2, #ffe0b2);
+        }
+        .sidebar {
+          background: linear-gradient(to bottom, #fb8c00, #f57c00);
+          min-height: 100vh;
+          border-right: 2px solid #fff3e0;
+        }
+        .sidebar-tab {
+          background-color: transparent;
+          color: white;
+          border: none;
+          margin-bottom: 0.5rem;
+          transition: all 0.3s ease;
+        }
+        .sidebar-tab:hover {
+          background-color: #ffcc80;
+          color: #212121;
+        }
+        .active-tab {
+          background-color: #fff3e0;
+          color: #e65100;
+          font-weight: bold;
+        }
+        .welcome-banner {
+          background: linear-gradient(90deg, #ffb74d, #ffa726);
+          color: #fff;
+          border-radius: 1rem;
+        }
+        .info-tile {
+          background-color: #ffffff;
+          border-radius: 1rem;
+        }
+        .product-card {
+          background-color: #fff8e1;
+          border-radius: 0.75rem;
+        }
+        .placeholder-dp {
+          width: 80px;
+          height: 80px;
+          background-color: #ffe0b2;
+          color: #e65100;
+          font-size: 32px;
+          font-weight: bold;
+          text-transform: uppercase;
+          border: 2px solid #fff;
+          margin-left: 50px;
+        }
+        .initials {
+          font-family: 'Arial', sans-serif;
+        }
+      `}</style>
+
       <div className="row g-0">
         {/* Sidebar */}
         <div className="col-md-2 sidebar d-flex flex-column p-4 text-white">
