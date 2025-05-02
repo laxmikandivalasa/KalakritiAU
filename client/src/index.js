@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Dashboard from './pages/Dashboard';
 import reportWebVitals from './reportWebVitals';
-import Login from './pages/login';
-import SignupPage from './pages/signup';
-import Home from './pages/Home';
+import Routing from './components/Routing'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Login/>
+    {/* <Login/> */}
+    <Routing/>
   </React.StrictMode>
 );
 
