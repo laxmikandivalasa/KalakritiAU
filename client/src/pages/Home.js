@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", color: '#2b1b16', backgroundColor: '#fff8f5' }}>
-      
+
       {/* Navbar */}
       <nav style={navStyle}>
         <div style={brandStyle}>🎨 KALAKRITI</div>
@@ -24,27 +24,49 @@ const Home = () => {
           <a href="/about" style={link}>About</a>
           <a href="/contact" style={link}>Contact</a>
           <a href="/dashboard" style={link}>Dashboard</a>
-          <a href="/login" style={buttonOutline}>Login</a>
-          <a href="/signup" style={buttonPrimary}>Signup</a>
+          <a href="/login" style={{ ...buttonOutline, backgroundColor: 'maroon' ,color:'beige'}}>Login</a>
+          <a href="/signup" style={{ ...buttonOutline, backgroundColor: 'maroon' ,color:'beige'}}>Signup</a>
           <a href="/cart" style={buttonCart}>🛒</a>
         </div>
       </nav>
 
       {/* 1. Discover Section */}
-      <section className="fade-in" style={section('#DC143C')}>
-        <h2 style={{ ...title, color: '#fff' }}>Discover Artisan Stories</h2>
-        <p style={{ ...centerText, color: '#ffeaea' }}>
-          Every piece is a legacy. Explore artisan backgrounds, craft stories, and cultural roots.
-        </p>
-        <a  href="/discover"
-    style={{
-      ...buttonPrimary,
-      marginLeft:'35rem',
-    }}>Explore Now</a>
+      <section
+        className="fade-in"
+        style={{
+          backgroundImage: "url('/finalbgkalakriti.png')", // Replace with actual image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '90vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+
+        }}
+      >
+        <a
+          href="/discover"
+          style={{
+            ...buttonPrimary,
+            padding: '0.8rem 1.5rem',
+            fontSize: '1.3rem',
+            backgroundColor: 'beige',
+            color: 'maroon',
+            textDecoration: 'none',
+            fontWeight: 600,
+            borderRadius: '0.5rem',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+            marginLeft: '-50rem',
+            marginTop: '15rem',
+          }}
+        >
+          Explore Now
+        </a>
       </section>
 
+
       {/* 2. Popular Categories */}
-      <section className="fade-in" style={section('#FF7F50')}>
+      <section className="fade-in" style={section('white')}>
         <h2 style={title}>Popular Categories</h2>
         <div style={grid}>
           {[
@@ -136,13 +158,15 @@ const buttonOutline = {
   ...buttonPrimary,
   background: 'transparent',
   color: '#FF4500',
-  border: '2px solid #FF4500'
+  textDecoration: 'none',
+  border: '2px solid beige'
 };
 
 const buttonCart = {
   ...buttonPrimary,
   background: '#ffd2a1',
-  color: '#000'
+  color: '#000',
+  textDecoration: 'none',
 };
 
 const section = (bg) => ({
