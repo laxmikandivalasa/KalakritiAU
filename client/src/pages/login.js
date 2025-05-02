@@ -11,14 +11,6 @@ export default function LoginPage() {
     // Add authentication logic here
   };
 
-  // Color palette from your specs
-  const colors = {
-    darkRed: '#C40C0C',
-    orange: '#FF6500',
-    lightOrange: '#FF8A08',
-    yellow: '#FFC100'
-  };
-
   return (
     <div className="vh-100 d-flex align-items-center justify-content-center" 
          style={{ backgroundColor: '#e6f5e6' }}>
@@ -38,7 +30,7 @@ export default function LoginPage() {
                   <div style={{ 
                     width: '30px', 
                     height: '30px', 
-                    backgroundColor: colors.yellow,
+                    backgroundColor: 'maroon',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
@@ -47,7 +39,7 @@ export default function LoginPage() {
                     <div style={{ 
                       width: '15px', 
                       height: '15px', 
-                      backgroundColor: colors.orange,
+                      backgroundColor: 'beige',
                       borderRadius: '50%'
                     }}></div>
                   </div>
@@ -91,7 +83,7 @@ export default function LoginPage() {
                   onClick={handleSubmit}
                   className="btn py-2 text-white fw-bold"
                   style={{ 
-                    backgroundColor: colors.yellow,
+                    backgroundColor: 'maroon',
                     borderRadius: '0.5rem'
                   }}
                 >
