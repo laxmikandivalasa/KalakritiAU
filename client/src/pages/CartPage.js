@@ -28,7 +28,7 @@ export default function CartPage() {
     <div
       className="min-vh-100 py-4 py-md-5"
       style={{
-        background: 'linear-gradient(135deg, #fef1f1, #fefce8)',
+        background: 'linear-gradient(to right, #fff3e0, #ffe0b2)',
         fontFamily: "'Poppins', sans-serif",
         position: 'relative',
         overflow: 'hidden',

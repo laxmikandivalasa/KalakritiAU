@@ -27,7 +27,7 @@ export default function LoginPage() {
 
   return (
     <div className="vh-100 d-flex align-items-center justify-content-center" 
-         style={{ backgroundColor: '#e6f5e6' }}>
+         style={{ background: 'linear-gradient(to right, #fff3e0, #ffe0b2)' }}>
       
       <div className="card shadow-lg border-0" style={{ 
         width: '850px', 

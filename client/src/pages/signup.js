@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import API from '../api'; // import your axios instance
+
 
 export default function SignupPage() {
     const [fullName, setFullName] = useState('');
@@ -30,27 +30,18 @@ export default function SignupPage() {
                 password,
                 confirmPassword,
             });
-            
+
             // Save token to localStorage (or cookie)
             localStorage.setItem('token', response.data.token);
             alert("Signup successful!");
             // Optional: navigate to dashboard
-            window.location.href = '/dashboard'; 
-          } catch (error) {
+            window.location.href = '/dashboard';
+        } catch (error) {
             console.error('Signup failed:', error.response?.data || error.message);
             alert('Signup failed. Please try again.');
-          }
+        }
         // Add registration logic here
     };
-
-    // Color palette from your specs
-    const colors = {
-        darkRed: '#C40C0C',
-        orange: '#FF6500',
-        lightOrange: '#FF8A08',
-        yellow: '#FFC100'
-    };
-
     // Sample states for dropdown
     const states = [
         "Select State", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar",
@@ -65,16 +56,16 @@ export default function SignupPage() {
 
     return (
         <div className="min-vh-100 d-flex align-items-center justify-content-center py-5"
-        style={{
-            backgroundImage: 'linear-gradient(to bottom right,#FF8A08,#FF6500)',
-            minHeight: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+            style={{
+                backgroundImage: 'linear-gradient(to right, #fff3e0, #ffe0b2)',
+                minHeight: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
 
             <div className="card shadow-lg border-0" style={{
-                width: '950px',
+                width: '850px',
                 maxWidth: '95%',
                 borderRadius: '1rem',
                 overflow: 'hidden'
@@ -88,7 +79,7 @@ export default function SignupPage() {
                                     <div style={{
                                         width: '30px',
                                         height: '30px',
-                                        backgroundColor: colors.yellow,
+                                        backgroundColor: 'maroon',
                                         borderRadius: '50%',
                                         display: 'flex',
                                         alignItems: 'center',
@@ -97,7 +88,7 @@ export default function SignupPage() {
                                         <div style={{
                                             width: '15px',
                                             height: '15px',
-                                            backgroundColor: colors.orange,
+                                            backgroundColor: 'beige',
                                             borderRadius: '50%'
                                         }}></div>
                                     </div>
@@ -146,7 +137,6 @@ export default function SignupPage() {
                                         <option value="">Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
-                                        <option value="other">Other</option>
                                         <option value="prefer_not_to_say">Prefer not to say</option>
                                     </select>
                                 </div>
@@ -250,16 +240,16 @@ export default function SignupPage() {
                             <div className="mb-4 form-check">
                                 <input type="checkbox" className="form-check-input" id="terms" />
                                 <label className="form-check-label small text-secondary" htmlFor="terms">
-                                    I agree to the <a href="#" className="text-decoration-none" style={{ color: colors.orange }}>Terms of Service</a> and <a href="#" className="text-decoration-none" style={{ color: colors.orange }}>Privacy Policy</a>
+                                    I agree to the <a href="#" className="text-decoration-none" style={{ color: 'maroon' }}>Terms of Service</a> and <a href="#" className="text-decoration-none" style={{ color: 'maroon' }}>Privacy Policy</a>
                                 </label>
                             </div>
 
                             <div className="d-grid mb-4">
                                 <button
                                     onClick={handleSubmit}
-                                    className="btn py-2 text-white fw-bold"
+                                    className="btn py-2 text-white fw-bold text-secondary ms-2"
                                     style={{
-                                        backgroundColor: colors.yellow,
+                                        backgroundColor: 'maroon',
                                         borderRadius: '0.5rem'
                                     }}
                                 >
