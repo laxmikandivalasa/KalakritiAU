@@ -10,14 +10,12 @@ export default function LoginPage() {
     e.preventDefault();
     // console.log('Login submitted:', { email, password });
     try {
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email,
-        password,
-      });
+      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+
   
       // Save token
       localStorage.setItem('token', response.data.token);
-  
+      alert("Login successful!");
       // Redirect to dashboard or protected page
       window.location.href = '/dashboard';
     } catch (error) {

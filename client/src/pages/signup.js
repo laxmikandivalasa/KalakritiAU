@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import API from '../api'; // import your axios instance
 
 export default function SignupPage() {
     const [fullName, setFullName] = useState('');
@@ -17,7 +18,7 @@ export default function SignupPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/signup', {
+            const response = await axios.post('http://localhost:5000/api/auth/signup', {
                 fullName,
                 email,
                 gender,
@@ -32,7 +33,7 @@ export default function SignupPage() {
             
             // Save token to localStorage (or cookie)
             localStorage.setItem('token', response.data.token);
-        
+            alert("Signup successful!");
             // Optional: navigate to dashboard
             window.location.href = '/dashboard'; 
           } catch (error) {

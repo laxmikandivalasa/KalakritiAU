@@ -10,6 +10,8 @@ function Sell() {
   return <h2>🎨 Sell Page - List Your Creative Work</h2>;
 }
 
+// Removed unnecessary cors import and usage
+
 function App() {
   return (
     <BrowserRouter>
