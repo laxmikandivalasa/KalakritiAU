@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function SignupPage() {
@@ -13,20 +14,31 @@ export default function SignupPage() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Signup submitted:', {
-            fullName,
-            email,
-            gender,
-            dob,
-            mobileNumber,
-            state,
-            district,
-            area,
-            password,
-            confirmPassword
-        });
+        try {
+            const response = await axios.post('http://localhost:5000/api/signup', {
+                fullName,
+                email,
+                gender,
+                dob,
+                mobileNumber,
+                state,
+                district,
+                area,
+                password,
+                confirmPassword,
+            });
+            
+            // Save token to localStorage (or cookie)
+            localStorage.setItem('token', response.data.token);
+        
+            // Optional: navigate to dashboard
+            window.location.href = '/dashboard'; 
+          } catch (error) {
+            console.error('Signup failed:', error.response?.data || error.message);
+            alert('Signup failed. Please try again.');
+          }
         // Add registration logic here
     };
 

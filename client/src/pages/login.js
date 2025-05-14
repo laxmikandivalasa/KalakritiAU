@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login submitted:', { email, password });
+    // console.log('Login submitted:', { email, password });
+    try {
+      const response = await axios.post('http://localhost:5000/api/login', {
+        email,
+        password,
+      });
+  
+      // Save token
+      localStorage.setItem('token', response.data.token);
+  
+      // Redirect to dashboard or protected page
+      window.location.href = '/dashboard';
+    } catch (error) {
+      console.error('Login failed:', error.response?.data || error.message);
+      alert('Login failed. Please check your credentials.');
+    }
     // Add authentication logic here
   };
 

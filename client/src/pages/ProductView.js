@@ -97,6 +97,13 @@ const ProductView = () => {
     setFilters({ ...filters, [name]: value });
   };
 
+  const [cartItems, setCartItems] = useState([]);
+
+const handleAddToCart = (product) => {
+setCartItems([...cartItems, product]);
+console.log("Cart:", [...cartItems, product]);
+// In real app, make an API call to store in MongoDB here
+};
   // Filter products based on the filters
   const filteredProducts = products.filter(product => {
     return (
@@ -162,6 +169,13 @@ const ProductView = () => {
               <p style={productTypeStyle}>{product.type}</p>
               <p style={productPriceStyle}>{product.price}</p>
               <p style={productDescriptionStyle}>{product.description}</p>
+              <button
+                onClick={() => handleAddToCart(product)}
+                style={addToCartButtonStyle}
+              >
+                Add to Cart
+              </button>
+
             </div>
           </div>
         ))}
@@ -257,4 +271,13 @@ const productDescriptionStyle = {
   color: '#555'
 };
 
+const addToCartButtonStyle = {
+  backgroundColor: '#B22222',
+  color: 'white',
+  padding: '0.6rem 1rem',
+  border: 'none',
+  borderRadius: '5px',
+  cursor: 'pointer',
+  marginTop: '0.5rem'
+  };
 export default ProductView;
