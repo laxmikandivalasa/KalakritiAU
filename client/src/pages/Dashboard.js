@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Dashboard = () => {
+  const user = JSON.parse(localStorage.getItem('user')) || {};
   const [activeTab, setActiveTab] = useState('profile');
   const [bio, setBio] = useState("I am a textile artist from the vibrant deserts of Rajasthan. Inspired by my grandmother’s embroidery work, I started experimenting with eco-friendly dyes and natural fabrics. Every piece I create tells a story of tradition, sustainability, and love for heritage.");
   const [editingBio, setEditingBio] = useState(false);
   const [newBio, setNewBio] = useState(bio);
   const profileImage = null;
 
+  const handleLogout = () => {
+    localStorage.clear(); // or localStorage.removeItem('user');
+    window.location.href = '/login';
+  };
   const tabClass = (tab) => `list-group-item list-group-item-action sidebar-tab ${activeTab === tab ? 'active-tab' : ''}`;
 
   return (
@@ -87,6 +92,11 @@ const Dashboard = () => {
             <button onClick={() => setActiveTab('orders')} className={tabClass('orders')}>My Orders</button>
             <button onClick={() => setActiveTab('reviews')} className={tabClass('reviews')}>My Reviews</button>
             <button onClick={() => setActiveTab('wallet')} className={tabClass('wallet')}>Earnings & Wallet</button>
+          
+            <button onClick={handleLogout} className="btn btn-sm btn-light mt-4 text-danger fw-bold">
+  Logout
+</button>
+
           </div>
         </div>
 
@@ -95,7 +105,7 @@ const Dashboard = () => {
           <div className="welcome-banner card border-0 shadow-sm mb-4 p-4 text-white">
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-between">
               <div>
-                <h3 className="fw-bold">Hey, Priya! 👋</h3>
+                <h3 className="fw-bold">Hey,{user.fullName || "N/A"} 👋</h3>
                 <p>Welcome to your dashboard. Let's celebrate Indian creativity together!</p>
               </div>
               <img src="/illustration.png" alt="Welcome" className="img-fluid d-none d-md-block" style={{ maxHeight: '100px' }} />
@@ -107,9 +117,9 @@ const Dashboard = () => {
               <div className="card-body">
                 <h5 className="card-title mb-3 text-primary">Profile Information</h5>
                 <ul className="list-unstyled">
-                  <li><strong>Name:</strong> Priya Sharma</li>
-                  <li><strong>Region:</strong> Rajasthan</li>
-                  <li><strong>Email:</strong> priya.kalakriti@example.com</li>
+                  <li><strong>Name:</strong> {user.fullName || "N/A"}</li>
+                  <li><strong>Region:</strong> {user.area || "N/A"}</li>
+                  <li><strong>Email:</strong> {user.email || "N/A"}</li>
                 </ul>
               </div>
             </div>

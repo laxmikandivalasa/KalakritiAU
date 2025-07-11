@@ -33,6 +33,16 @@ export default function SignupPage() {
 
             // Save token to localStorage (or cookie)
             localStorage.setItem('token', response.data.token);
+
+            const userData = {
+                fullName,
+                email,
+                area,
+              };
+          
+              localStorage.setItem('user', JSON.stringify(userData));
+
+              
             alert("Signup successful!");
             // Optional: navigate to dashboard
             window.location.href = '/dashboard';

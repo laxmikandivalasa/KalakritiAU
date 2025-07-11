@@ -94,7 +94,21 @@ router.post('/login', async (req, res) => {
         return res.status(401).json({ message: "Invalid credentials" });
       }
   
-      res.status(200).json({ message: "Login successful", user });
+      // res.status(200).json({ message: "Login successful", user });
+
+      res.status(200).json({ 
+        message: "Login successful", 
+        user: {
+          fullName: user.fullName,
+          email: user.email,
+          gender: user.gender,
+          dob: user.dob,
+          mobileNumber: user.mobileNumber,
+          state: user.state,
+          district: user.district,
+          area: user.area
+        }
+      });
     } catch (error) {
       console.error("Login error:", error);
       res.status(500).json({ message: "Server error. Please try again later." });

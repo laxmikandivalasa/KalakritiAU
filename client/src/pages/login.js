@@ -14,7 +14,8 @@ export default function LoginPage() {
 
   
       // Save token
-      localStorage.setItem('token', response.data.token);
+      // localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       alert("Login successful!");
       // Redirect to dashboard or protected page
       window.location.href = '/dashboard';
