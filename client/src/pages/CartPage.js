@@ -3,10 +3,12 @@ import { Trash2, Minus, Plus, CreditCard, DollarSign, ShoppingBag } from 'lucide
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function CartPage() {
-  const [items, setItems] = useState([
-    { id: 1, name: 'Rajasthani Puppet Set', price: 799, quantity: 1, image: '/api/placeholder/80/80' },
-    { id: 2, name: 'Madhubani Painting', price: 1499, quantity: 2, image: '/api/placeholder/80/80' },
-  ]);
+ const [items, setItems] = useState(() => {
+  const saved = localStorage.getItem("kalakrithiCart");
+  const parsed = saved ? JSON.parse(saved) : [];
+  return parsed.map(item => ({ ...item, quantity: item.quantity || 1 }));
+});
+  localStorage.setItem("kalakrithiCart", JSON.stringify(items));
 
   const updateQuantity = (id, delta) => {
     setItems(prev =>
@@ -22,7 +24,11 @@ export default function CartPage() {
     setItems(prev => prev.filter(item => item.id !== id));
   };
 
-  const totalAmount = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+ const totalAmount = items.reduce((acc, item) => {
+  const numericPrice = parseFloat(item.price.toString().replace(/[^0-9.]/g, ""));
+  return acc + numericPrice * item.quantity;
+}, 0);
+
 
   return (
     <div
