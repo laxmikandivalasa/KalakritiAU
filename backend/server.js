@@ -9,7 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Replace with your own MongoDB URI
 mongoose.connect("mongodb://localhost:27017/Kalakriti", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -23,7 +22,6 @@ mongoose.connect("mongodb://localhost:27017/Kalakriti", {
   
   
 
-// Define schema and model
 const cartItemSchema = new mongoose.Schema({
   name: String,
   type: String,
